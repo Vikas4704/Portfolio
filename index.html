@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Vikas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: rgb(10,10,10);
+            color: white;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            padding: 15px;
+            background: black;
+            font-family: 'Poppins', sans-serif;
+        }
+        nav a {
+            color: rgba(255, 255, 255, 0.3);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        nav a:hover, nav a.active {
+            color: white;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 60px);
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px solid white;
+            margin-bottom: 20px;
+        }
+        .role {
+            font-size: 24px;
+            margin-top: 10px;
+            color: white;
+        }
+        .about {
+            max-width: 600px;
+            margin-top: 20px;
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        .work-btn {
+            margin-top: 50px;
+            padding: 10px 25px;
+            font-size: 18px;
+            border: 2px solid white;
+            color: white;
+            background: none;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: transform 0.3s, box-shadow 0.3s, color 0.3s, border-color 0.3s;
+        }
+        .work-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: red;
+            border-color: red;
+            transform: translateY(-5px);
+            box-shadow: 0px 5px 15px rgba(255, 0, 0, 0.5);
+        }
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .footer .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .footer .social-icons a {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .footer .social-icons a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="active">Home</a>
+        <a href="resume.html"> Resume</a>
+        <a href="project.html">Projects</a>
+        <a href="#">Contact</a>
+    </nav>
+    
+    <div class="container">
+        <img src="c:\Users\sharm\Downloads\Untitled design (2).png" alt="Vikas' Photo" class="profile-img">
+        <h1>Vikas</h1>
+        <p class="role">Cybersecurity Enthusiast</p>
+        <p class="about">Passionate about cybersecurity, ethical hacking, and digital forensics. I love exploring security vulnerabilities and building secure applications.</p>
+        
+        <button class="work-btn">See My Work</button>
+    </div>
+    
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="https://github.com/Vikas12206063" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/vikas-sharma" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:vikas472004@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            <a href="tel:+919056848092"><i class="fa-solid fa-phone"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
