@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Vikas</title>
+    <title>Portfolio | [Your Name]</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
@@ -11,20 +11,25 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
         body {
-            background-color: rgb(10,10,10);
-            color: white;
+            background-color: #000;
+            color: #fff;
             text-align: center;
+            overflow-x: hidden;
+            position: relative;
         }
         nav {
             display: flex;
             justify-content: flex-end;
             width: 100%;
             padding: 15px;
-            background: black;
-            font-family: 'Poppins', sans-serif;
+            background: rgba(0, 0, 0, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
         }
         nav a {
             color: rgba(255, 255, 255, 0.3);
@@ -34,6 +39,8 @@
             transition: color 0.3s;
         }
         nav a:hover, nav a.active {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            transform: scale(1.1);
             color: white;
         }
         .container {
@@ -42,47 +49,93 @@
             align-items: center;
             justify-content: center;
             height: calc(100vh - 60px);
+            position: relative;
         }
         .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            border: 2px solid white;
+            border: 2px solid #fff;
             margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .profile-img:hover {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+            transform: scale(1.1);
+        }
+        h1 {
+            font-size: 3.5em;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+            color: #fff;
         }
         .role {
             font-size: 24px;
             margin-top: 10px;
-            color: white;
+            color: #fff;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.6s forwards;
         }
         .about {
             max-width: 600px;
             margin-top: 20px;
             font-size: 16px;
-            opacity: 0.8;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.9s forwards;
+            color: #fff;
         }
         .work-btn {
             margin-top: 50px;
             padding: 10px 25px;
             font-size: 18px;
-            border: 2px solid white;
-            color: white;
+            border: 2px solid #fff;
+            color: #fff;
             background: none;
             cursor: pointer;
             border-radius: 30px;
-            transition: transform 0.3s, box-shadow 0.3s, color 0.3s, border-color 0.3s;
+            transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.2s forwards;
         }
         .work-btn:hover {
             background: rgba(255, 255, 255, 0.1);
-            color: red;
-            border-color: red;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
             transform: translateY(-5px);
-            box-shadow: 0px 5px 15px rgba(255, 0, 0, 0.5);
+        }
+        /* About Me Section */
+        .about-me {
+            padding: 50px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 10px;
+            margin-top: 30px;
+            opacity: 0;
+            transform: translateY(50px);
+            border: 1px solid #fff;
+        }
+        .about-me.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .about-me h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .about-me p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            color: #fff;
         }
         .footer {
             margin-top: 50px;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.95);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.7);
         }
         .footer .social-icons {
             display: flex;
@@ -90,39 +143,62 @@
             gap: 20px;
         }
         .footer .social-icons a {
-            color: rgba(255, 255, 255, 0.3);
+            color: #fff;
             font-size: 24px;
-            transition: color 0.3s;
+            transition: text-shadow 0.3s, transform 0.3s;
         }
         .footer .social-icons a:hover {
-            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            transform: rotate(10deg) scale(1.2);
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="#" class="active">Home</a>
-        <a href="resume.html"> Resume</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="resume.html">Resume</a>
         <a href="project.html">Projects</a>
         <a href="#">Contact</a>
     </nav>
     
     <div class="container">
-        <img src="Untitled design (2).png" alt="Vikas' Photo" class="profile-img">
-        <h1>Vikas</h1>
+        <img src="c:\Users\sharm\Downloads\Untitled design (2).png" alt="[Your Name]'s Photo" class="profile-img">
+        <h1>Vikas Sharma</h1>
         <p class="role">Cybersecurity Enthusiast</p>
         <p class="about">Passionate about cybersecurity, ethical hacking, and digital forensics. I love exploring security vulnerabilities and building secure applications.</p>
-        
         <button class="work-btn">See My Work</button>
     </div>
+
+    <section class="about-me" id="about">
+        <h2>About Me</h2>
+        <p>I’m Vikas Sharma, a cybersecurity pro with a passion for securing systems and outsmarting threats. With a knack for penetration testing and network defense, I’m here to make the digital world a safer place.</p>
+    </section>
     
     <footer class="footer">
         <div class="social-icons">
-            <a href="https://github.com/Vikas12206063" target="_blank"><i class="fa-brands fa-github"></i></a>
-            <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>      
-            <a href="https://www.linkedin.com/in/vikas-sharma47" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="mailto:vikas472004@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://github.com/yourusername" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>            
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:your.email@example.com"><i class="fa-solid fa-envelope"></i></a>
         </div>
     </footer>
+
+    <script>
+        // Scroll animation for About Me section
+        const aboutSection = document.querySelector('.about-me');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(aboutSection);
+    </script>
 </body>
 </html>
