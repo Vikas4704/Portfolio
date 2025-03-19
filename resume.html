@@ -6,7 +6,7 @@
     <title>Resume | Vikas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
         * {
             margin: 0;
             padding: 0;
@@ -15,92 +15,157 @@
             scroll-behavior: smooth;
         }
         body {
-            background-color: black;
-            color: white;
+            background-color: #000;
+            color: #fff;
             overflow-x: hidden;
+            position: relative;
+        }
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
         nav {
             display: flex;
             justify-content: flex-end;
             width: 100%;
             padding: 15px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
         }
         nav a {
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.5);
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 20px;
             font-size: 18px;
-            transition: color 0.3s;
+            font-weight: 400;
+            transition: all 0.3s ease;
         }
         nav a:hover, nav a.active {
+            color: #fff;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
             transform: scale(1.1);
-            color: white;
         }
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 50px auto;
             padding: 20px;
             text-align: center;
         }
-        .section {
-            margin-top: 40px;
-            text-align: left;
-        }
-        .section h2 {
-            font-size: 24px;
-            border-bottom: 2px solid white;
-            padding-bottom: 5px;
-        }
-        .section p, .section ul {
-            font-size: 16px;
-            margin-top: 10px;
-            opacity: 0.8;
-        }
-        .section ul {
-            padding-left: 20px;
+aminated        h1 {
+            font-size: 2.8em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-in-out;
+            text-transform: uppercase;
         }
         .download-btn {
             display: inline-block;
-            margin-top: 30px;
-            padding: 12px 25px;
+            margin: 20px 0 40px;
+            padding: 12px 30px;
             font-size: 18px;
-            border: 2px solid white;
-            color: white;
-            background: none;
+            font-weight: 600;
+            border: 2px solid #fff;
+            color: #fff;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
             text-decoration: none;
-            border-radius: 8px;
-            transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+            border-radius: 25px;
+            transition: all 0.3s ease;
         }
         .download-btn:hover {
-            background: white;
-            color: black;
+            background: #fff;
+            color: #000;
             transform: translateY(-5px);
-            box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        .section {
+            margin-top: 40px;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .section h2 {
+            font-size: 26px;
+            font-weight: 600;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .section p, .section ul {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+        .section ul {
+            padding-left: 25px;
+            list-style: none;
+        }
+        .section ul li {
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .section ul li::before {
+            content: '\f054'; /* Font Awesome chevron-right */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #fff;
+            position: absolute;
+            left: -20px;
+            top: 2px;
+            font-size: 12px;
+        }
+        .section p strong, .section ul li strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
+    <div id="particles"></div>
+    
     <nav>
         <a href="index.html">Home</a>
-        <a href="resume.html" class="active">Resume</a>
+        <a href="#" class="active">Resume</a>
         <a href="project.html">Projects</a>
         <a href="contact.html">Contact</a>
     </nav>
     
     <div class="container">
-        <a href="CV softskils.pdf" download class="download-btn">Download Resume</a>
+        <h1>Vikas Sharma</h1>
+        <a href="/mnt/data/CV softskils.pdf" download class="download-btn">Download Resume</a>
         
-        <div class="section">
+        <div class="section" id="skills">
             <h2>Skills</h2>
             <p><strong>Languages:</strong> C++, Java, Python</p>
             <p><strong>Frameworks:</strong> HTML, CSS</p>
-            <p><strong>Tools/Platforms:</strong> MySQL, Wireshark, N-map, Blender, Unity</p>
+            <p><strong>Tools/Platforms:</strong> MySQL, Wireshark, Nmap, Blender, Unity</p>
             <p><strong>Soft Skills:</strong> Problem-Solving, Team Player, Adaptability</p>
         </div>
         
-        <div class="section">
+        <div class="section" id="projects">
             <h2>Projects</h2>
             <ul>
                 <li><strong>The Savage Games - Gaming Gadgets Platform:</strong> Front-end e-commerce site using Bootstrap.</li>
@@ -109,7 +174,7 @@
             </ul>
         </div>
         
-        <div class="section">
+        <div class="section" id="certifications">
             <h2>Certifications</h2>
             <ul>
                 <li>Java & DSA - CipherSchools</li>
@@ -118,7 +183,7 @@
             </ul>
         </div>
         
-        <div class="section">
+        <div class="section" id="achievements">
             <h2>Achievements</h2>
             <ul>
                 <li>3-Star rating in Python coding on HackerRank</li>
@@ -126,11 +191,45 @@
             </ul>
         </div>
         
-        <div class="section">
+        <div class="section" id="education">
             <h2>Education</h2>
             <p><strong>Lovely Professional University</strong> - B.Tech CSE, CGPA: 5.00 (Since Aug 2022)</p>
             <p><strong>Indian Public Senior Secondary School</strong> - 12th: 89.8% (2018-2019), 10th: 80% (2020-2021)</p>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        // Particles Background
+        particlesJS("particles", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.4, "random": true },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.3, "width": 1 },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": true }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" } },
+                "modes": { "repulse": { "distance": 100, "duration": 0.4 } }
+            },
+            "retina_detect": true
+        });
+
+        // Scroll Animation for Sections
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        sections.forEach(section => observer.observe(section));
+    </script>
 </body>
 </html>
